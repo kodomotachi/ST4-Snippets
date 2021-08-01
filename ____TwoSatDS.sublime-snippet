@@ -1,0 +1,82 @@
+<snippet>
+	<content><![CDATA[
+struct TwoSat {$0
+	int n, cnt; stack<int> st;
+	vector<vector<int>> adj;
+	vector<int> clr, num, low;
+	// all required variables
+	// should appear here
+
+	void reset(int option = 0) {
+		if (option == 1) adj.assign(2*n, {});
+		num.assign(2*n, 0); low.assign(2*n, 0);
+		clr.assign(2*n, 0); cnt = 0;
+		while (not st.empty()) st.pop();
+	} TwoSat(int n = 0) : n(n) { reset(1); }
+	// initializing structure
+
+	static int fix(int u) {
+		return u > 0 ? 2*u - 1 : -2*(u + 1);
+	} void addClause(int u, int v) {
+		adj[fix(u)^1].push_back(fix(v));
+		adj[fix(v)^1].push_back(fix(u));
+	} // constructing implication graph
+
+	bool setColor(int u, int x) {
+		// x == 1 -> OFF
+		// x == 2 -> ON
+
+		if (clr[u] == 3-x)
+			return false;
+		else clr[u] = x;
+		// u's state == x
+
+		if (clr[u^1] == x)  
+			return false;
+		else clr[u^1] = 3-x;
+		// ~u's state == not x
+
+		return true;
+	} // set a state to variable
+
+	bool tarjan(int u) {
+		num[u] = low[u] = ++cnt;
+		st.push(u);
+		for (int v : adj[u]) {
+			if (num[v] != 0)
+				minz(low[u], num[v]);
+			else if (tarjan(v))
+				minz(low[u], low[v]);
+			else return false;
+			if (clr[v] == 1)
+				if (!setColor(u, 1))
+					return false;
+		} if (num[u] == low[u]) {
+			if (clr[u] == 0)
+				if (!setColor(u, 2))
+					return false;
+			for (int v = -1; u != v; ) {
+				v = st.top(); st.pop();
+				if (!setColor(v, clr[u]))
+					return false;
+				num[v] = low[v] = e30;
+			}
+		} return true;
+	}
+
+	bool satisfiable() {
+		reset(); forn(i, 2*n)
+			if (num[i] == 0) {
+				if (!tarjan(i))
+					return false;
+			}
+		return true;
+	} bool operator[](int u)
+		{ return clr[2*u] == 1; }
+};
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>TwoSatDS</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
