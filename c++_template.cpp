@@ -1,8 +1,9 @@
 #ifdef LOCAL
-#include "local.h"
+#include <local.h>
+#define debug(x...) cerr << "[" << #x << "] = ["; _print(x)
 #else
 #include <bits/stdc++.h>
-#define debug(...) 17
+#define debug(x...) 17
 #endif
 
 // libraries
@@ -49,27 +50,6 @@ namespace std {
 		}
 		size_t operator()(u64 x) const { return _splitmix64_(x + FIXED_RANDOM); }
 	};
-}
-namespace Math {
-	i64 powM(i64 a, i64 b, i64 m = -1) {
-		i64 res = 1; for (; !!b; b >>= 1, a *= a)
-		if (b & 1) if (res *= a; m != -1)
-			res %= m; return res;
-	}
-	template<typename T> T pow(T a, i64 b) {
-		T res = a; for (b--; !!b; b >>= 1, a *= a)
-		if (b & 1) res *= a; return res;
-	}
-    template<typename T> T minv(T a, T m) {
-        if (a %= m; a < 0) a += m;
-        int x = a, y = m, u = 1, v = 0;
-        while (x != 0) { T t = y / x;
-            swap(x, y -= t * x);
-            swap(u, v -= t * u);
-        }
-        assert(y == 1);
-        return v < 0 ? v + m : v;
-    }
 }
 
 
