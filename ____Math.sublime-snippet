@@ -1,0 +1,29 @@
+<snippet>
+	<content><![CDATA[
+namespace Math {
+	i64 powM(i64 a, i64 b, i64 m = -1) {
+		i64 res = 1; for (; !!b; b >>= 1, a *= a)
+		if (b & 1) if (res *= a; m != -1)
+			res %= m; return res;
+	}
+	template<typename T> T pow(T a, i64 b) {
+		T res = a; for (b--; !!b; b >>= 1, a *= a)
+		if (b & 1) res *= a; return res;
+	}
+    template<typename T> T minv(T a, T m) {
+        if (a %= m; a < 0) a += m;
+        int x = a, y = m, u = 1, v = 0;
+        while (x != 0) { T t = y / x;
+            swap(x, y -= t * x);
+            swap(u, v -= t * u);
+        }
+        assert(y == 1);
+        return v < 0 ? v + m : v;
+    }
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>MathNS</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
