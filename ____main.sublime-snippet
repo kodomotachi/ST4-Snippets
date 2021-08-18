@@ -10,7 +10,7 @@
 
 // libraries
 using namespace std;
-namespace std {
+namespace std {$0
 	// definitions
 	#define _ first
 	#define __ second
