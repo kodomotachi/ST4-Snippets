@@ -31,7 +31,7 @@ namespace std {
 	i64 rand(i64 a, i64 b) { return uniform_int_distribution<i64>(a, b)(rng); }
 
 	// constants
-	const i64 FIXED_RANDOM = rng();
+	const i64 FIXED_RANDOM = rng(), LUV = 17 * 83;
 	constexpr i64 e30 = 1ll << 30,  e60 = 1ll << 60;
 	constexpr dbl PI  = acos(-1),   eps = 1e-7;
 	constexpr i64 md  = 1e9 + 7,    _md = 1e9 + 1617;
