@@ -16,6 +16,8 @@ namespace std {
 	#define gint reader.getData<i64>()
 	#define gstr reader.getData<str>()
 	#define var(args...) args; read args
+	#define all(a)  (a).begin(),  (a).end()
+	#define rall(a) (a).rbegin(), (a).end()
 	#define FOR(i, u, v) for (int i = (u), _ = (v); i < _; i++)
 	#define ROF(i, u, v) for (int i = (u), _ = (v); --i >= _; )
 	using i64 = long long;              using str = string;
