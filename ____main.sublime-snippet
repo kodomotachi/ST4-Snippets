@@ -40,7 +40,7 @@ namespace std {$0
 
 	// structures
 	struct reader {
-		template<class T> reader &operator,(T &_t_) { return cin >> _t_, *this; }
+		template<class T> reader &operator,(T &x) { return cin >> x, *this; }
 		template<class T> T getData() { T x; return cin >> x, x; }
 	};
 	template<class... Args> auto vctr(size_t n, Args&&... args) {
