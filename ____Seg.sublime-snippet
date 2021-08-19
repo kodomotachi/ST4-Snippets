@@ -1,0 +1,34 @@
+<snippet>
+	<content><![CDATA[
+template<typename T> struct SegTree {$0
+	int n; vector<T> t;
+	SegTree(int n) : n(n) { t.resize(2*n); }
+	T &operator[](int idx) { return t[idx + n]; }
+	T merge(T a, T b);
+	// initializing Segment Tree
+
+	void update() { // O(n)
+		for (int i = n - 1; !!i; i--)
+			t[i] = merge(t[i << 1], t[i << 1 | 1]);
+	}
+	
+	void modify(int u, int x) { // O(logn)
+		for (t[u += n] = x; u >>= 1; )
+			t[u] = merge(t[u << 1], t[u << 1 | 1]);
+	}
+	
+	T getVal(int a = -1, int b = -1) { // O(logn)
+		T resL = 0, resR = 0;
+		int l = a + n, r = b + n;
+		for (r++; l < r; l >>= 1, r >>= 1) {
+			if (l & 1) resL = merge(resL, t[l++]);
+			if (r & 1) resR = merge(t[--r], resR);
+		} return merge(resL, resR);
+	}
+};
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>SegTreeDS</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
