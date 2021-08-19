@@ -38,8 +38,10 @@ namespace std {
 
 	// structures
 	struct reader {
-		template<class T> reader &operator,(T &x) { return cin >> x, *this; }
-		template<class T> T getData() { T x; return cin >> x, x; }
+		template<class T> reader &operator,(T &x) {
+			return ok &= !!(cin >> x), *this;
+		} bool ok = true; operator bool() { return ok; }
+		template<class T> static T getData() { T x; return cin >> x, x; }
 	};
 	template<class... Args> auto vctr(size_t n, Args&&... args) {
 		if constexpr(sizeof...(args) == 1) return vector(n, args...);
