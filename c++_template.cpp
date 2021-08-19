@@ -15,7 +15,7 @@ namespace std {
 	#define read reader(),
 	#define gint reader().getData<i64>()
 	#define gstr reader().getData<str>()
-	#define var(args...) args; read args
+	#define vrb(args...) args; read args
 	#define all(a)  (a).begin(),  (a).end()
 	#define rall(a) (a).rbegin(), (a).end()
 	#define FOR(i, u, v) for (int i = (u), _n_ = (v); i < _n_; i++)
