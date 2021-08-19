@@ -1,14 +1,14 @@
 <snippet>
 	<content><![CDATA[
-namespace Math {
-	i64 powM(i64 a, i64 b, i64 m = -1) {
-		i64 res = 1; for (; !!b; b >>= 1, a *= a)
+namespace Math {$0
+	int64_t powM(int64_t a, int64_t b, int64_t m = -1) {
+		int64_t res = 1; for (; !!b; b >>= 1, a *= a)
 		if (b & 1) if (res *= a; m != -1)
 			res %= m; return res;
 	}
-	template<typename T> T pow(T a, i64 b) {
+	template<typename T> T pow(T a, int64_t b) {
 		T res = a; for (b--; !!b; b >>= 1, a *= a)
-		if (b & 1) res *= a; return res;
+			if (b & 1) res *= a; return res;
 	}
     template<typename T> T minv(T a, T m) {
         if (a %= m; a < 0) a += m;
