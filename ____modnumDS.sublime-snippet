@@ -6,12 +6,22 @@ template<int MOD_> struct modnum {$0
 
 private:
 	int v;
+	template<typename T> static T minv(T a, T m) {
+        if (a %= m; a < 0) a += m;
+        int x = a, y = m, u = 1, v = 0;
+        while (x != 0) { T t = y / x;
+            swap(x, y -= t * x);
+            swap(u, v -= t * u);
+        }
+        assert(y == 1);
+        return v < 0 ? v + m : v;
+    }
 
 public:
-	modnum(i64 v_ = 0) : v(int(v_ % MOD)) { if (v < 0) v += MOD; }
+	modnum(int64_t v_ = 0) : v(int(v_ % MOD)) { if (v < 0) v += MOD; }
 	explicit operator int() const { return v; }
 	friend ostream& operator << (ostream& out, const modnum& n) { return out << int(n); }
-	friend istream& operator >> (istream& in, modnum& n) { i64 v_; in >> v_; n = modnum(v_); return in; }
+	friend istream& operator >> (istream& in, modnum& n) { int64_t v_; in >> v_; n = modnum(v_); return in; }
 
 	friend bool operator == (const modnum& a, const modnum& b) { return a.v == b.v; }
 	friend bool operator != (const modnum& a, const modnum& b) { return a.v != b.v; }
@@ -57,7 +67,7 @@ public:
 		return *this;
 	}
 	modnum& operator *= (const modnum& o) {
-		v = int(i64(v) * i64(o.v) % MOD);
+		v = int(int64_t(v) * int64_t(o.v) % MOD);
 		return *this;
 	}
 	modnum& operator /= (const modnum& o) {
@@ -71,7 +81,7 @@ public:
 	friend modnum operator * (const modnum& a, const modnum& b) { return modnum(a) *= b; }
 	friend modnum operator / (const modnum& a, const modnum& b) { return modnum(a) /= b; }
 };
-using mint = modnum<md>;
+using mint = modnum<1000000007>;
 ]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
 	<tabTrigger>modnumDS</tabTrigger>
