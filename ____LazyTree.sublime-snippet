@@ -7,17 +7,9 @@ template<typename T> struct LazyTree {$0
 		t.resize(2*n); d.resize(n);
 	}
 	T &operator[](int idx) { return t[idx + n]; }
-	T merge(T a, T b) { return a + b; }
+	T merge(T a, T b);
+	void apply(int p, T v), renew(int p);
 	// initializing Lazy Propagation Segment Tree
-
-	void apply(int p, T v) {
-		t[p] = merge(t[p], v);
-		if (p < n) d[p] = merge(d[v], v);
-	}
-	void renew(int p) {
-		t[p] = merge(t[p << 1], t[p << 1 | 1]);
-		t[p] = merge(t[p], d[p]);
-	}
 
 	void update(int p = -1) {
 		// 0 parameter passed -> update the whole tree -> O(n)
