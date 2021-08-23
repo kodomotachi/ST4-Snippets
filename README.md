@@ -1,3 +1,3 @@
 # Snippets for my Sublime Text Workplace
 
-Updating... until I or my CP career died.
+Updating... until dlbm1302 or his CP career died.
