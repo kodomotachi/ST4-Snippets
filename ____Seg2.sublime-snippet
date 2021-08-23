@@ -21,7 +21,7 @@ template<class T> struct SegTree {$0
 	}
 	
 	T getVal(int a, int b) { // O(logn)
-		T res = 0;
+		T res = T();
 		for (a += n; !!a; a >>= 1)
 			res = merge(res, t[a]);
 		return res;
