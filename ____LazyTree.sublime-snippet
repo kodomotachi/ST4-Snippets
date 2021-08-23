@@ -1,6 +1,6 @@
 <snippet>
 	<content><![CDATA[
-template<typename T> struct LazyTree {$0
+template<class T> struct LazyTree {$0
 	int n, h; vector<T> t, d;
 	LazyTree(int n) : n(n) {
 		h = 31 - __builtin_clz(n);
