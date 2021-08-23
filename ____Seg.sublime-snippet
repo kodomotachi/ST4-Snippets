@@ -12,12 +12,12 @@ template<typename T> struct SegTree {$0
 			t[i] = merge(t[i << 1], t[i << 1 | 1]);
 	}
 	
-	void modify(int u, int x) { // O(logn)
+	void modify(int u, T x) { // O(logn)
 		for (t[u += n] = x; u >>= 1; )
 			t[u] = merge(t[u << 1], t[u << 1 | 1]);
 	}
 	
-	T getVal(int a = -1, int b = -1) { // O(logn)
+	T getVal(int a, int b) { // O(logn)
 		T resL = 0, resR = 0;
 		int l = a + n, r = b + n;
 		for (r++; l < r; l >>= 1, r >>= 1) {
