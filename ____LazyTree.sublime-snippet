@@ -32,7 +32,7 @@ template<class T> struct LazyTree {$0
 	}
 
 	void getVal(int l, int r) {
-		T res = 0;
+		T res = T();
 		update(l += n), update(r += n);
 		for (r++; l < r; l >>= 1, r >>= 1) {
 			if (l & 1) res = merge(res, t[l++]);
