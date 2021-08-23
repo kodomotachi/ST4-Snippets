@@ -1,6 +1,6 @@
 <snippet>
 	<content><![CDATA[
-template<typename T> struct SegTree {$0
+template<class T> struct SegTree {$0
 	int n; vector<T> t;
 	SegTree(int n) : n(n) { t.resize(2*n); }
 	T &operator[](int idx) { return t[idx + n]; }
