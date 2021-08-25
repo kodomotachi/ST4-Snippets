@@ -1,6 +1,6 @@
 #ifdef LOCAL
 #include <local.h>
-#define debug(x...) cerr << "[" << #x << "] = ["; _print(x)
+#define debug(x...) cerr << "[" << #x << "] = [", _print(x)
 #else
 #include <bits/stdc++.h>
 #define debug(x...) 17
