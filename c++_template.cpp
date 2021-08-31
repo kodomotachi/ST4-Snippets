@@ -13,10 +13,10 @@ namespace std {
 	#define _ first
 	#define __ second
 	#define read reader(),
-	#define gint reader().getData<i64>()
-	#define gstr reader().getData<str>()
+	#define gint reader::getData<i64>()
+	#define gstr reader::getData<str>()
 	#define all(a)  (a).begin(),  (a).end()
-	#define rall(a) (a).rbegin(), (a).end()
+	#define rall(a) (a).rbegin(), (a).rend()
 	#define FOR(i, u, v) for (int i = (u), _n_ = (v); i < _n_; i++)
 	#define ROF(i, u, v) for (int i = (u), _n_ = (v); --i >= _n_; )
 	using i64 = long long;              using str = string;
@@ -30,9 +30,9 @@ namespace std {
 	i64 rand(i64 a, i64 b) { return uniform_int_distribution<i64>(a, b)(rng); }
 
 	// constants
-	const i64 FIXED_RANDOM = rng(), LUV = 17 * 83;
+	const i64 FIXED_RANDOM = rng(), luv = 17 * 83;
 	constexpr i64 e30 = 1ll << 30,  e60 = 1ll << 60;
-	constexpr dbl PI  = acos(-1),   eps = 1e-7;
+	constexpr dbl pi  = acos(-1),   eps = 1e-7;
 	constexpr i64 md  = 1e9 + 7,    _md = 1e9 + 1617;
 
 	// structures
