@@ -23,6 +23,8 @@ namespace std {$0
 	using i64 = long long;              using str = string;
 	using u64 = unsigned long long;     using dbl = double;
 	using p32 = pair<int, int>;         using p64 = pair<i64, i64>;
+	template<class T> using MaxHeap = priority_queue<T>;
+	template<class T> using MinHeap = priority_queue<T, vector<T>, greater<T>>;
 
 	// functions
 	template<class A, class B> bool maxz(A &a, B b) { return a < b && (a = b, true); }
@@ -43,9 +45,9 @@ namespace std {$0
 		} bool ok = true; operator bool() { return ok; }
 		template<class T> static T getData() { T x; return cin >> x, x; }
 	};
-	template<class... Args> auto vctr(size_t n, Args&&... args) {
+	template<class... Args> auto V(size_t n, Args&&... args) {
 		if constexpr(sizeof...(args) == 1) return vector(n, args...);
-		else return vector(n, vctr(args...));
+		else return vector(n, V(args...));
 	}
 }
 
