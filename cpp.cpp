@@ -1,5 +1,5 @@
-// Compilability: C++11 or above.
-// Source: https://github.com/KozerG17/ST4-Snippets/blob/main/cpp.cpp
+// C++ Template Code is tested for compability with: C++11 or above
+// Repo: https://github.com/KozerG17/ST4-Snippets/blob/main/cpp.cpp
 
 #ifdef LBM_LOCAL
 #include <local.h>
