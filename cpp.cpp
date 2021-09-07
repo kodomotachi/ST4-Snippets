@@ -54,7 +54,7 @@ namespace std {
 
 
 /* -----------------[ MAIN CODE GOES HERE ]----------------- */
-const short luv = 17 * 32;
+const short luv = 17 * 83;
 
 int main() {
 	cin.tie(nullptr) -> sync_with_stdio(false);
