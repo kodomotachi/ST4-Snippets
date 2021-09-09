@@ -1,6 +1,6 @@
 <snippet>
 	<content><![CDATA[
-namespace Math {$0
+namespace std {$0
 	int64_t Pow(int64_t a, int64_t b, const int64_t &m) {
 		int64_t res = 1;
 		for (; !!b; b >>= 1, a *= a)
