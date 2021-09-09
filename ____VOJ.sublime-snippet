@@ -6,7 +6,7 @@ using namespace std;
 #define all(a)  begin(a),  end(a)
 #define rall(a) rbegin(a), rend(a)
 #define For(i, a, b) for (int i = a; i < b; i++)
-#define For(i, a, b) for (int i = a; --i >= b; )
+#define Rof(i, a, b) for (int i = a; --i >= b; )
 
 using i64 = long long;         using str = string;
 using p32 = pair<int, int>;    using p64 = pair<i64, i64>;
