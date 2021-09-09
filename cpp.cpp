@@ -49,7 +49,7 @@ namespace std {
 		#define Gint Reader::getData<i64>()
 		#define Gstr Reader::getData<str>()
 	};
-}
+} // custom standard namespace
 
 
 
