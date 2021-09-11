@@ -12,8 +12,8 @@
 using namespace std;
 namespace std {
 	// macros
-	#define _ first
-	#define __ second
+	#define fi first
+	#define se second
 	#define all(a)  (a).begin(),  (a).end()
 	#define rall(a) (a).rbegin(), (a).rend()
 	#define For(i, u, v) for (int i = (u), _n_ = (v); i < _n_; i++)
