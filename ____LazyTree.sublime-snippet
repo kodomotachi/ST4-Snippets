@@ -1,0 +1,49 @@
+<snippet>
+	<content><![CDATA[
+template<class T> struct LazyTree {$0
+	int n, h; vector<T> t, d;
+	LazyTree(int n) : n(n) {
+		h = 31 - __builtin_clz(n);
+		t.resize(2*n); d.resize(n);
+	}
+	T &operator[](int idx) { return t[idx + n]; }
+	T merge(T a, T b);
+	void apply(int p, T v), renew(int p);
+	// initializing Lazy Propagation Segment Tree
+
+	void update() {
+		for (int i = n - 1; !!i; i--) renew(i);
+	}
+	void update(int p) {
+		for (int k = h; !!k; k--) {
+			int i = p >> k; apply(i << 1, d[i]);
+			apply(i << 1 | 1, d[i]); d[i] = T();
+		}
+	}
+
+	void modify(int l, int r, T v) {
+		int _l = l += n, _r = r += n;
+		for (r++; l < r; l >>= 1, r >>= 1) {
+			if (l & 1) apply(l++, v);
+			if (r & 1) apply(--r, v);
+		}
+		while (_l >>= 1) renew(_l);
+		while (_r >>= 1) renew(_r);
+	}
+
+	void getVal(int l, int r) {
+		T res = T();
+		update(l += n), update(r += n);
+		for (r++; l < r; l >>= 1, r >>= 1) {
+			if (l & 1) res = merge(res, t[l++]);
+			if (r & 1) res = merge(res, t[--r]);
+		}
+		return res;
+	}
+};
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>LazyTreeDS</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
