@@ -40,7 +40,7 @@ public:
 	}
 	T all_prod() { return data[1]; }
 	template<bool (*f)(T)> int max_right(int l) {
-		assert(0 <= l && l <= n && f(e()));
+		assert(0 <= l && l <= n);
 		if (l == n) return n;
 		T sm = e(); l += size;
 		do {
@@ -59,7 +59,7 @@ public:
 		return n;
 	}
 	template<bool (*f)(T)> int min_left(int r) {
-		assert(0 <= r && r <= n && f(e()));
+		assert(0 <= r && r <= n);
 		if (r == 0) return 0;
 		T sm = e(); r += size;
 		do {
