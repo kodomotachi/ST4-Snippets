@@ -13,7 +13,7 @@ namespace std {$0
 			if (b & 1) res *= a;
 		return res;
 	}
-	int64_t Minv(int64_t a, const i64 &m) {
+	int64_t Minv(int64_t a, const int64_t &m) {
 		if (a %= m; a < 0) a += m;
 		int x = a, y = m, u = 1, v = 0;
 		while (x != 0) {
