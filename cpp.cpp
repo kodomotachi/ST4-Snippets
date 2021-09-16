@@ -41,10 +41,11 @@ namespace std {
 	// devices
 	class Reader {
 	public:
-		template<class T> Reader &operator,(T &x) {
+		template<class T> static T getData() {
+			T x; return cin >> x, x;
+		} template<class T> Reader &operator,(T &x) {
 			return ok &= !!(cin >> x), *this;
 		} bool ok = true; operator bool() { return ok; }
-		template<class T> static T getData() { T x; return cin >> x, x; }
 	private:
 		#define Read Reader(),
 		#define Gint Reader::getData<ll>()
